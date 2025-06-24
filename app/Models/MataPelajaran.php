@@ -13,6 +13,6 @@ class MataPelajaran extends Model
 
     public function penilaian()
     {
-        return $this->hasMany(Penilaian::class);
+        return $this->hasMany(\App\Models\Penilaian::class, 'mata_pelajaran_id');
     }
 }

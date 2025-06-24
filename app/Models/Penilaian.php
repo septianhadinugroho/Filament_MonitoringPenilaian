@@ -21,16 +21,16 @@ class Penilaian extends Model
 
     public function siswa()
     {
-        return $this->belongsTo(User::class, 'siswa_id');
+        return $this->belongsTo(\App\Models\User::class, 'siswa_id');
     }
-
+    
     public function guru()
     {
-        return $this->belongsTo(User::class, 'guru_id');
+        return $this->belongsTo(\App\Models\User::class, 'guru_id');
     }
-
+    
     public function mataPelajaran()
     {
-        return $this->belongsTo(MataPelajaran::class);
+        return $this->belongsTo(\App\Models\MataPelajaran::class);
     }
 }

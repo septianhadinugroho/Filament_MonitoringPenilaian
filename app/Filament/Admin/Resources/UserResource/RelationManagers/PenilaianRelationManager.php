@@ -21,13 +21,21 @@ class PenilaianRelationManager extends RelationManager
             ->schema([
                 Forms\Components\Select::make('siswa_id')
                     ->label('Siswa')
-                    ->options(User::where('role', 'siswa')->pluck('name', 'id'))
+                    ->relationship(
+                        name: 'siswa',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn (Builder $query) => $query->where('role', 'siswa')
+                    )
                     ->searchable()
                     ->required(),
                     
                 Forms\Components\Select::make('guru_id')
                     ->label('Guru')
-                    ->options(User::where('role', 'guru')->pluck('name', 'id'))
+                    ->relationship(
+                        name: 'guru',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn (Builder $query) => $query->where('role', 'guru')
+                    )
                     ->searchable()
                     ->required(),
                     
